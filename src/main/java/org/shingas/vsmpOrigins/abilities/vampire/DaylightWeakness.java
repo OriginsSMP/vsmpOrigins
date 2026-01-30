@@ -18,9 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class DaylightWeakness implements VisibleAbility, Listener {
 
+    private final Map<UUID, Boolean> sunlightCache = new ConcurrentHashMap<>();
+
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "daylight_weakness");
+        return Key.key("vsmporigins", "daylight_weakness");
     }
 
     @Override
@@ -43,21 +45,31 @@ public class DaylightWeakness implements VisibleAbility, Listener {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 runForAbility(player, p -> {
                     if (p.isOnline()) {
-                        boolean inSun = isInSunlight(p);
+                        try {
+                            boolean inSun = isInSunlight(p);
+                            sunlightCache.put(p.getUniqueId(), inSun);
 
-                        if (inSun) {
-                            p.addPotionEffect(new PotionEffect(
-                                    PotionEffectType.WEAKNESS,
-                                    40,
-                                    1,
-                                    false,
-                                    true,
-                                    true
-                            ));
+                            if (inSun) {
+                                p.addPotionEffect(new PotionEffect(
+                                        PotionEffectType.WEAKNESS,
+                                        40,
+                                        1,
+                                        false,
+                                        true,
+                                        true
+                                ));
+                            }
+                        } catch (Exception e) {
+                            sunlightCache.put(p.getUniqueId(), false);
                         }
                     }
                 });
             }
         }, 0L, 20L);
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        sunlightCache.remove(event.getPlayer().getUniqueId());
     }
 }

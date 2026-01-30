@@ -26,7 +26,7 @@ public class HarpySize implements AttributeModifierAbility, VisibleAbility {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "harpysize");
+        return Key.key("vsmporigins", "harpysize");
     }
 
     @Override

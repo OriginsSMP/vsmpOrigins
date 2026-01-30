@@ -25,6 +25,6 @@ public class DwarfSize implements AttributeModifierAbility {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "dwarf_size");
+        return Key.key("vsmporigins", "dwarf_size");
     }
 }

@@ -26,7 +26,7 @@ public class ExtraHearts implements AttributeModifierAbility, VisibleAbility {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "extra_hearts");
+        return Key.key("vsmporigins", "extra_hearts");
     }
 
     @Override

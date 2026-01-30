@@ -18,7 +18,7 @@ public class SunProtection implements VisibleAbility, Listener {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "sun_protection");
+        return Key.key("vsmporigins", "sun_protection");
     }
 
     @Override

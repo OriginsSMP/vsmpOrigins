@@ -2,9 +2,9 @@ name: vsmpOrigins
 version: '1.0'
 main: org.shingas.vsmpOrigins.vsmpOrigins
 api-version: '1.21'
-authors: [ Shingas ]
+authors: [Shingas]
 description: Shingas Custom Origin Addon
-depend: [ Origins-Reborn ]
+depend: [Origins-Reborn]
 commands:
   vamptoggle:
     description: "Toggles on/off the vampire transformation when killing players."

@@ -46,7 +46,7 @@ public class DragonFireBall implements VisibleAbility, CooldownAbility, Listener
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "dragon_fireball");
+        return Key.key("vsmporigins", "dragon_fireball");
     }
 
     @Override

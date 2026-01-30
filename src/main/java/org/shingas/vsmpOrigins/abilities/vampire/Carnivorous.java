@@ -43,7 +43,7 @@ public class Carnivorous implements VisibleAbility, Listener {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "carnivorous");
+        return Key.key("vsmporigins", "carnivorous");
     }
 
     @Override

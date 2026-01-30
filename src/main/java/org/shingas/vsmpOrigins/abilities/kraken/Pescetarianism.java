@@ -54,12 +54,12 @@ public class Pescetarianism implements VisibleAbility, Listener {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "pescetarianism");
+        return Key.key("vsmporigins", "pescetarianism");
     }
 
     @Override
     public String title() {
-        return "pescetarianism";
+        return "Pescetarianism";
     }
 
     @Override

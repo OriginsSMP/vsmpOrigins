@@ -1,21 +1,25 @@
 package org.shingas.vsmpOrigins;
 
-import com.starshootercity.OriginsAddon;
-import com.starshootercity.abilities.types.Ability;
-import org.jetbrains.annotations.NotNull;
 import org.shingas.vsmpOrigins.abilities.PoisonImmunity;
+import org.shingas.vsmpOrigins.abilities.Smaller;
+import org.shingas.vsmpOrigins.abilities.ExtraHearts;
 import org.shingas.vsmpOrigins.abilities.dragonborn.DragonFireBall;
 import org.shingas.vsmpOrigins.abilities.dwarf.DwarfHaste;
 import org.shingas.vsmpOrigins.abilities.dwarf.DwarfNightVision;
 import org.shingas.vsmpOrigins.abilities.dwarf.DwarfOreFortune;
 import org.shingas.vsmpOrigins.abilities.dwarf.DwarfSize;
-import org.shingas.vsmpOrigins.abilities.vampire.Carnivorous;
-import org.shingas.vsmpOrigins.abilities.vampire.DaylightWeakness;
-import org.shingas.vsmpOrigins.abilities.vampire.SunProtection;
-import org.shingas.vsmpOrigins.abilities.vampire.VampireTransformation;
+import org.shingas.vsmpOrigins.abilities.harpy.HarpySize;
+import org.shingas.vsmpOrigins.abilities.BeeFlight;
+import org.shingas.vsmpOrigins.abilities.kraken.Pescetarianism;
+import org.shingas.vsmpOrigins.abilities.kraken.Slightly;
+import org.shingas.vsmpOrigins.abilities.vampire.*;
 import org.shingas.vsmpOrigins.commands.DwarfVisionToggle;
 import org.shingas.vsmpOrigins.commands.VampTransformToggle;
 import org.shingas.vsmpOrigins.data.DataConfig;
+import com.starshootercity.OriginsAddon;
+import com.starshootercity.abilities.types.Ability;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -29,22 +33,35 @@ public final class vsmpOrigins extends OriginsAddon {
 
     @Override
     public @NotNull String getNamespace() {
-        return "shingasorigins";
+        return "vsmporigins";
     }
 
     @Override
     public @NotNull List<Ability> getRegisteredAbilities() {
         return List.of(
+                //Dwarf Abilities
                 new DwarfOreFortune(),
                 new DwarfSize(),
                 dwarfHaste,
                 dwarfNightVision,
                 new Carnivorous(),
                 new SunProtection(),
+                //new RainProtection(),
                 new VampireTransformation(),
                 dailyLightWeakness,
                 new DragonFireBall(),
-                new PoisonImmunity()
+                new PoisonImmunity(),
+                //Kraken Abilities
+                new Slightly(),
+                new Pescetarianism(),
+                //Harpy Abilities
+                new HarpySize(),
+                //Size
+                new Smaller(),
+                //Extra Hearts
+                new ExtraHearts(),
+                //Bee Abilities
+                new BeeFlight()
         );
     }
 
@@ -74,6 +91,7 @@ public final class vsmpOrigins extends OriginsAddon {
         getLogger().info("  - shingasorigins:daylight_weakness");
         getLogger().info("  - shingasorigins:sun_protection");
         getLogger().info("  - shingasorigins:vampire_transformation");
+        //getLogger().info("  - shingasorigins:rain_protection");
 
         getLogger().info("Dragonborn abilities registered:");
         getLogger().info("  - shingasorigins:dragon_fireball");
@@ -95,4 +113,5 @@ public final class vsmpOrigins extends OriginsAddon {
     public static DataConfig getDataConfig() { return dataConfig; }
 
     public static vsmpOrigins getInstance() { return instance; }
+
 }

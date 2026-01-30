@@ -42,7 +42,7 @@ public class DwarfOreFortune implements Ability, Listener {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "dwarf_ore_fortune");
+        return Key.key("vsmporigins", "dwarf_ore_fortune");
     }
 
     private boolean isPickaxe(Material type) {
@@ -63,12 +63,15 @@ public class DwarfOreFortune implements Ability, Listener {
         double chance = Math.random(); // 0.0 to 1.0
         int amount;
 
-        if (chance < 0.80) {       // 80% chance
+        if (chance < 0.40) {       // 40% chance
             amount = 1;
-        } else if (chance < 0.95) { // 80% + 15% = 95%
+        } else if (chance < 0.475) { // 7.5% chance
             amount = 2;
-        } else {                    // remaining 5%
+        } else if (chance < 0.50) {  // 2.5% chance
             amount = 3;
+        } else {
+            // 50% chance - no extra ore drops
+            return new ItemStack(Material.AIR, 0);
         }
 
         return new ItemStack(oreMap.get(type), amount);
@@ -85,7 +88,10 @@ public class DwarfOreFortune implements Ability, Listener {
 
         runForAbility(player, p -> {
             Location loc = block.getLocation();
-            loc.getWorld().dropItemNaturally(loc, getExtraOre(type));
+            ItemStack extraOre = getExtraOre(type);
+            if (extraOre.getType() != Material.AIR) {
+                loc.getWorld().dropItemNaturally(loc, extraOre);
+            }
         });
     }
 

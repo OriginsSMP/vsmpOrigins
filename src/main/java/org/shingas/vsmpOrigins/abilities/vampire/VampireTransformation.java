@@ -1,5 +1,7 @@
 package org.shingas.vsmpOrigins.abilities.vampire;
 
+import org.shingas.vsmpOrigins.vsmpOrigins;
+import org.shingas.vsmpOrigins.data.DataConfig;
 import com.starshootercity.abilities.types.VisibleAbility;
 import net.kyori.adventure.key.Key;
 import org.bukkit.Bukkit;
@@ -8,8 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.jetbrains.annotations.NotNull;
-import org.shingas.vsmpOrigins.data.DataConfig;
-import org.shingas.vsmpOrigins.vsmpOrigins;
 
 public class VampireTransformation implements VisibleAbility, Listener {
 
@@ -26,7 +26,7 @@ public class VampireTransformation implements VisibleAbility, Listener {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "vampire_transformation");
+        return Key.key("vsmporigins", "vampire_transformation");
     }
 
     @EventHandler

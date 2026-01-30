@@ -1,7 +1,8 @@
 package org.shingas.vsmpOrigins.commands;
 
-
+import org.shingas.vsmpOrigins.vsmpOrigins;
 import org.shingas.vsmpOrigins.data.DataConfig;
+import org.shingas.vsmpOrigins.data.PlayerData;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -10,7 +11,6 @@ import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.shingas.vsmpOrigins.vsmpOrigins;
 
 import java.util.List;
 

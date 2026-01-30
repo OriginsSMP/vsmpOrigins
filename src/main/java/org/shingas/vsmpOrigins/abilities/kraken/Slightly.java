@@ -26,7 +26,7 @@ public class Slightly implements AttributeModifierAbility, VisibleAbility {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "slightly");
+        return Key.key("vsmporigins", "slightly");
     }
 
     @Override

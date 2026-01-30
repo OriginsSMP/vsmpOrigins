@@ -11,11 +11,13 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.concurrent.TimeUnit;
+
 public class DwarfNightVision implements Ability {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "dwarf_nightvision");
+        return Key.key("vsmporigins", "dwarf_nightvision");
     }
 
     public void startTask(Plugin plugin) {

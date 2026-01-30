@@ -26,7 +26,7 @@ public class Smaller implements AttributeModifierAbility, VisibleAbility {
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("shingasorigins", "smaller");
+        return Key.key("vsmporigins", "smaller");
     }
 
     @Override
