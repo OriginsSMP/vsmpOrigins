@@ -1,4 +1,4 @@
-package org.shingas.vsmpOrigins.abilities.vampire;
+package org.shingas.vsmpOrigins.abilities;
 
 import com.starshootercity.abilities.types.VisibleAbility;
 import net.kyori.adventure.key.Key;

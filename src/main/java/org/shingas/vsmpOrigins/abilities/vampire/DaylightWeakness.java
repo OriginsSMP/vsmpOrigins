@@ -18,7 +18,6 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class DaylightWeakness implements VisibleAbility, Listener {
 
-    private final Map<UUID, Boolean> sunlightCache = new ConcurrentHashMap<>();
 
     @Override
     public @NotNull Key getKey() {
@@ -37,39 +36,25 @@ public class DaylightWeakness implements VisibleAbility, Listener {
 
     private boolean isInSunlight(Player player) {
         return player.getWorld().isDayTime() &&
-                player.getLocation().getBlock().getLightFromSky() >= 12;
+                player.getLocation().getBlock().getLightFromSky() >= 15;
     }
 
     public void startTask(Plugin plugin) {
         Bukkit.getScheduler().runTaskTimer(plugin, () -> {
             for (Player player : Bukkit.getOnlinePlayers()) {
                 runForAbility(player, p -> {
-                    if (p.isOnline()) {
-                        try {
-                            boolean inSun = isInSunlight(p);
-                            sunlightCache.put(p.getUniqueId(), inSun);
-
-                            if (inSun) {
-                                p.addPotionEffect(new PotionEffect(
-                                        PotionEffectType.WEAKNESS,
-                                        40,
-                                        1,
-                                        false,
-                                        true,
-                                        true
-                                ));
-                            }
-                        } catch (Exception e) {
-                            sunlightCache.put(p.getUniqueId(), false);
-                        }
+                    if (isInSunlight(p)) {
+                        p.addPotionEffect(new PotionEffect(
+                                PotionEffectType.WEAKNESS,
+                                40,
+                                1,
+                                false,
+                                true,
+                                true
+                        ));
                     }
                 });
             }
         }, 0L, 20L);
-    }
-
-    @EventHandler
-    public void onPlayerQuit(PlayerQuitEvent event) {
-        sunlightCache.remove(event.getPlayer().getUniqueId());
     }
 }

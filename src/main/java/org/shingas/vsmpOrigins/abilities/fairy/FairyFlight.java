@@ -1,10 +1,11 @@
-package org.shingas.vsmpOrigins.abilities;
+package org.shingas.vsmpOrigins.abilities.fairy;
 
 import com.starshootercity.abilities.types.CooldownAbility;
 import com.starshootercity.abilities.types.TriggerableAbility;
 import com.starshootercity.abilities.types.VisibleAbility;
 import com.starshootercity.cooldowns.Cooldowns;
 import net.kyori.adventure.key.Key;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,18 +18,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class BeeFlight implements Listener, CooldownAbility, VisibleAbility, TriggerableAbility {
+public class FairyFlight implements Listener, CooldownAbility, VisibleAbility, TriggerableAbility {
 
     private final Map<UUID, Long> lastSneakTime = new HashMap<>();
 
     @Override
     public @NotNull Key getKey() {
-        return Key.key("vsmporigins", "bee_flight");
+        return Key.key("vsmporigins", "fairy_flight");
     }
 
     @Override
     public String title() {
-        return "Bee Flight";
+        return "Fairy Flight";
     }
 
     @Override
@@ -38,7 +39,7 @@ public class BeeFlight implements Listener, CooldownAbility, VisibleAbility, Tri
 
     @Override
     public Cooldowns.CooldownInfo getCooldownInfo() {
-        return new Cooldowns.CooldownInfo(400, "bee_flight");
+        return new Cooldowns.CooldownInfo(400, "fairy_flight");
     }
 
     @Override
@@ -48,8 +49,9 @@ public class BeeFlight implements Listener, CooldownAbility, VisibleAbility, Tri
                     Player player = event.player();
                     
                     // Check if player is in the air (not on ground)
-                    if (player.isOnGround()) return;
-                    
+                    Location loc = player.getLocation().subtract(0, 0.05, 0);
+                    if (!loc.getBlock().isPassable()) { return; }
+
                     // Check cooldown
                     if (hasCooldown(player)) return;
                     

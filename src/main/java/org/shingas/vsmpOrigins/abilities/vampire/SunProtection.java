@@ -38,7 +38,7 @@ public class SunProtection implements VisibleAbility, Listener {
 
     private boolean isInSunlight(Player player) {
         return player.getWorld().isDayTime() &&
-                player.getLocation().getBlock().getLightFromSky() >= 14;
+                player.getLocation().getBlock().getLightFromSky() >= 15;
     }
 
     private boolean isNotInFire(Player player) {
