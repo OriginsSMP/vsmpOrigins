@@ -58,7 +58,9 @@ public final class vsmpOrigins extends OriginsAddon {
                 new Carnivorous(),
                 new ExtraHearts(),
                 new Smaller(),
-                new PoisonImmunity()
+                new PoisonImmunity(),
+                new CreativeFlight(),
+                new NoArmor()
         );
     }
 
@@ -106,6 +108,8 @@ public final class vsmpOrigins extends OriginsAddon {
         getLogger().info("  - shingasorigins:extra_hearts");
         getLogger().info("  - shingasorigins:smaller");
         getLogger().info("  - shingasorigins:poisonimmunity");
+        getLogger().info("  - shingasorigins:creative_flight");
+        getLogger().info("  - shingasorigins:no_armor");
 
         // Start tasks for
         dwarfHaste.startTask(this);
